@@ -10,11 +10,15 @@ The repository contains the code for the following methods:
 
 # Data preparation
 
-  1) Download dataset https://github.com/deepinsight/insightface/wiki/Dataset-Zoo 
+  1) Download dataset https://github.com/deepinsight/insightface/wiki/Dataset-Zoo
   2) Extract images using: data_prepare/bin_get_images.ipynb
   3) Save vectors from Resnet100 using: data_prepare/save_embedings.ipynb
   4) Prepare a list for conversion to .bin file using: data_prepare/save_lst.ipynb
-  5) Convert to .bin file using: insightface/blob/master/src/data/dir2rec.py
+  5) Create file 'property' in folder with images with next content: 85742,112,112
+     It is: number of classes, width, height
+  6) Replace face2rec2.py in insightface/blob/master/src/data/ with data_prepare/face2rec2.py from this repository
+     Replace face_preprocess.py in insightface/blob/master/src/common/ with data_prepare/face_preprocess.py from this repository
+  7) Convert to .bin file using: face2rec2.py "path to folder with 'train.lst' and 'property'"
 
 ### Training
 
